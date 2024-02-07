@@ -1,1 +1,117 @@
-<p>user-list works!</p>
+<!-- <div class="search-container">
+  <input type="text" [(ngModel)]="searchQuery" placeholder="Search by name or email">
+  <button (click)="searchUsers()">Search</button>
+</div>
+
+<div class="user-list-container">
+  <div *ngFor="let user of users" class="user-card">
+    <h3>{{ user.name }}</h3>
+    <p>Email: {{ user.email }}</p>
+    <button (click)="deleteUser(user.id)">Delete</button>
+    <button (click)="editUser(user)">Edit</button>
+    <div *ngIf="editingUser && editingUser.id === user.id">
+      <form (ngSubmit)="updateUser()">
+        <label for="edit-name">Name:</label>
+        <input type="text" id="edit-name" [(ngModel)]="editingUser.name" name="edit-name" required>
+        
+        <label for="edit-email">Email:</label>
+        <input type="email" id="edit-email" [(ngModel)]="editingUser.email" name="edit-email" required>
+        
+        <button type="submit">Update User</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<form (ngSubmit)="addUser()">
+  <label for="name">Name:</label>
+  <input type="text" id="name" [(ngModel)]="newUser.name" name="name" required>
+  
+  <label for="email">Email:</label>
+  <input type="email" id="email" [(ngModel)]="newUser.email" name="email" required>
+  
+  <button type="submit">Add User</button>
+</form> -->
+
+
+
+<header class="header1">
+  <nav id="nav" class="navbar">
+      <div class="container-fluid">
+          <a class="navbar-brand">Student Details</a>
+          <div class="d-flex" role="search">
+              <input class="form-control me-2" [(ngModel)]="searchQuery" type="text" placeholder="Search" aria-label="Search">
+              <!-- <button class="btn btn-g" type="submit">Search</button> -->
+              <button class = "btn-btn-g"  (click)="searchUsers()">Search</button>
+          </div>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-g" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Add Student Details
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">Add Student Details </h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                          <form (ngSubmit)="addUser()">
+                              <div class="mb-3">
+                                  <label for="StudentName" class="form-label">Student Name</label>
+                                  <input type="text"  [(ngModel)]="newUser.name" class="form-control" id="StudentName" name="StudentName" required>
+                              </div>
+                              <div class="mb-3">
+                                  <label for="StudentEmail" class="form-label">Student Email</label>
+                                  <input type="email"  [(ngModel)]="newUser.email" class="form-control" id="StudentEmail" name="StudentEmail" required>
+                              </div>
+                              <div class="button">
+                                  <button type="submit" class="btn btn-primary">Submit</button>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </nav>
+</header>
+<table class="table table-bordered table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Student Name</th>
+      <th scope="col">Student Email</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>
+        <button type="button" class="btn btn-outline-primary" (click)="editUser(user)">Edit</button> 
+        <button type="button" class="btn btn-outline-danger mx-2" (click)="deleteUser(user.id)">Delete</button>
+        <br><br>
+        <div *ngIf="editingUser && editingUser.id === user.id">
+          <form (ngSubmit)="updateUser()">
+            <label for="edit-name">Name:</label>
+            <input type="text" id="edit-name" [(ngModel)]="editingUser.name" name="edit-name" required>
+            <br><br>
+            <label for="edit-email">Email:</label>
+            <input type="email" id="edit-email" [(ngModel)]="editingUser.email" name="edit-email" required>
+            <br><br>
+            <button type="submit">Update User</button>
+          </form>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
