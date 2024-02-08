@@ -1,6 +1,6 @@
 /* user-list.component.css */
 
-.user-list-container {
+/* .user-list-container {
     margin: 20px;
   }
   
@@ -40,12 +40,12 @@
   
   .add-user-form button:hover {
     background-color: #0056b3;
-  }
+  } */
 
 
 
-  .navbar{
-    background-color: black
+.navbar{
+    background-color: navy
 }
 .navbar-brand{
     color: antiquewhite;
@@ -59,4 +59,4 @@
     margin: auto;
     text-align: center;
 }
-  
+

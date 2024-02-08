@@ -95,17 +95,28 @@
       <td>{{ user.name }}</td>
       <td>{{ user.email }}</td>
       <td>
+        <!-- <img src="https://cdn-icons-png.flaticon.com/128/8188/8188338.png" height="30px"  alt="Example Image" (click)="editUser(user) ">
+      
+        <img src="https://cdn-icons-png.flaticon.com/128/1215/1215092.png" height="30px"  alt="Example Image" (click)="deleteUser(user.id) ">
+       -->
+       
         <button type="button" class="btn btn-outline-primary" (click)="editUser(user)">Edit</button> 
         <button type="button" class="btn btn-outline-danger mx-2" (click)="deleteUser(user.id)">Delete</button>
         <br><br>
         <div *ngIf="editingUser && editingUser.id === user.id">
           <form (ngSubmit)="updateUser()">
             <label for="edit-name">Name:</label>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
             <input type="text" id="edit-name" [(ngModel)]="editingUser.name" name="edit-name" required>
             <br><br>
             <label for="edit-email">Email:</label>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
             <input type="email" id="edit-email" [(ngModel)]="editingUser.email" name="edit-email" required>
             <br><br>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
             <button type="submit">Update User</button>
           </form>
         </div>

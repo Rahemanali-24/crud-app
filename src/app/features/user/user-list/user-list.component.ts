@@ -19,15 +19,12 @@ export class UserListComponent implements OnInit {
   ngOnInit(): void {
     this.loadUsers();
   }
-
   loadUsers(): void {
     this.users = this.localStorageService.getUsers();
     console.log('Loaded users:', this.users); 
 
   }
-
   
-
   addUser(): void {
     console.log('Adding user:', this.newUser); 
     this.newUser.id = this.generateUniqueId();
@@ -36,6 +33,9 @@ export class UserListComponent implements OnInit {
     this.loadUsers(); 
     this.newUser = { id: 0, name: '', email: '' }; 
   }
+
+
+  
   deleteUser(userId: number): void {
     this.localStorageService.deleteUser(userId);
     this.loadUsers(); 
